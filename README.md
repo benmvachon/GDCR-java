@@ -26,9 +26,11 @@ This version of Game of Life takes place of a 29x29 grid, the top left cell is (
 
 - WHITE
 - BLACK
+
 The first rule differs.
 
 - When a cell switches from being DEAD to ALIVE, it assumes the color of the majority of the 3 cells. Since 3 is odd, majority always exists.
+
 The rest of the rules follow the original version of the game. 
 Initially, all the cells are in DEAD state. The first player plays WHITE and the second player plays BLACK. Each player take turns to switch one DEAD cell to ALIVE state. The ALIVE cell takes the color assigned to the player. This goes on till each player has placed 40 cells of their respective colors on the grid. The game then starts. The alive cells of the maximum color at the end of 500 life cycles wins the game!
 
