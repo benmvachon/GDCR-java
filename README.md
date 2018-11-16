@@ -1,6 +1,6 @@
 # GDCR-java
 
-The Global Day of Coderetreat code challenge is to write a solver for Conway's Game of Life.
+The Global Day of Code Retreat code challenge is to write a solver for Conway's Game of Life.
 
 ## The Game of Life
 
