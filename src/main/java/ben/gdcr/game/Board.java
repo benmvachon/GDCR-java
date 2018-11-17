@@ -84,6 +84,51 @@ public class Board {
       }
       return true;
     }
+    
+    public TileIndex getLeftNeighbor() {
+      return new TileIndex(row, column-1);
+    }
+    
+    public TileIndex getTopLeftNeighbor() {
+      return new TileIndex(row-1, column-1);
+    }
+    
+    public TileIndex getTopNeighbor() {
+      return new TileIndex(row-1, column);
+    }
+    
+    public TileIndex getTopRightNeighbor() {
+      return new TileIndex(row-1, column+1);
+    }
+    
+    public TileIndex getRightNeighbor() {
+      return new TileIndex(row, column+1);
+    }
+    
+    public TileIndex getBottomRightNeighbor() {
+      return new TileIndex(row+1, column+1);
+    }
+    
+    public TileIndex getBottomNeighbor() {
+      return new TileIndex(row+1, column);
+    }
+    
+    public TileIndex getBottomLeftNeighbor() {
+      return new TileIndex(row-1, column+1);
+    }
+    
+    public TileIndex[] getNeighbors() {
+      TileIndex[] neighbors = new TileIndex[8];
+      neighbors[0] = getLeftNeighbor();
+      neighbors[1] = getTopLeftNeighbor();
+      neighbors[2] = getTopNeighbor();
+      neighbors[3] = getTopRightNeighbor();
+      neighbors[4] = getRightNeighbor();
+      neighbors[5] = getBottomRightNeighbor();
+      neighbors[6] = getBottomNeighbor();
+      neighbors[7] = getBottomLeftNeighbor();
+      return neighbors;
+    }
   }
   
   Mark[][] tiles = new Mark[29][29];
@@ -126,6 +171,14 @@ public class Board {
       }
       this.tiles[rowIndex] = row;
     }
+  }
+  
+  public Board clone() {
+    Mark[][] deepClone = new Mark[29][29];
+    for (int row = 0; row < 29; row ++) {
+      deepClone[row] = tiles[row].clone();
+    }
+    return new Board(deepClone, turn);
   }
   
   public Mark[][] getTiles() {
